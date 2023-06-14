@@ -16,6 +16,7 @@
     <nav class="w3-bar w3-black w3-mobile">
         <a href="#information" class="w3-bar-item w3-button w3-mobile">Willkommen</a>
         <a href="#transaction" class="w3-bar-item w3-button w3-mobile">Transaktionen</a>
+        <a href="#transactionlist" class="w3-bar-item w3-button w3-mobile">Transaktionen</a>
         <a href="#categorie" class="w3-bar-item w3-button w3-mobile">Kategorien</a>
     </nav>
    
@@ -25,8 +26,8 @@
         <img id="information_picture" src="img/Bild Budget.jpg" alt="Bild Budget" class="w3-image w3-mobile">
     </section>
 
-    <section id="form" class="w3-container w3-section w3-mobile">
-        <form id="expense-form" action="add_expense.php" method="post" class="w3-container w3-section w3-mobile">
+    <section id="transaction" class="w3-container w3-section w3-mobile">
+        <form id="expense-form" action="add_expense.php" method="POST" class="w3-container w3-section w3-mobile">
             <fieldset>
                 <legend>Meine Ausgaben</legend>
 
@@ -47,20 +48,18 @@
                 <label for="description">Beschreibung:</label>
                 <textarea id="description" name="description" rows="4" cols="20" class="w3-input w3-border w3-mobile"></textarea><br><br>
 
-                <button type="submit" class="w3-button w3-black w3-mobile">Ausgabe hinzufügen</button>
+                <input type="submit" class="w3-button w3-black w3-mobile">Ausgabe hinzufügen</input>
             </fieldset>
         </form>
     </section>
 
-    <section id="form" class="w3-container w3-section w3-mobile">
-        <h2>Übersicht Ausgaben</h2>
-        <canvas id="canvas" class="w3-border"></canvas>
-    </section>
-
-    <section id="transaktionen" class="w3-container w3-section w3-mobile">
+    <section id="transactionlist" class="w3-container w3-section w3-mobile">
         <h2>Transaktionen</h2>
         <ul id="transaction-list" class="w3-ul"></ul>
     </section>
+
+    <canvas id="canvas" width="400" height="400"></canvas>
+
 
     <section id="kategorien" class="w3-container w3-section w3-mobile">
         <h2>Kategorien</h2>
@@ -72,5 +71,7 @@
     <footer class="w3-container w3-black w3-mobile">
         <p>&copy; 2023 Budgetplaner</p>
     </footer>
+
+    
 </body>
 </html>

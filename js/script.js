@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('expense-form');
   form.addEventListener('submit', function(event) {
       event.preventDefault();
@@ -91,4 +91,4 @@ document.addEventListener('DOMContentLoaded', function() {
       return color;
   }
 });
-
+*/

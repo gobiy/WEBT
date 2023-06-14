@@ -1,4 +1,4 @@
-new Vue({
+/*new Vue({
     methods: {
       validateField: function(field) {
         if (!this.formData[field]) {
@@ -28,5 +28,5 @@ new Vue({
         }
       }
     }
-  });
+  });*/
   

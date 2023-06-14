@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
     let addedCategories = [];
 
     if (localStorage.getItem('addedCategories')) {
@@ -28,4 +28,4 @@ document.addEventListener('DOMContentLoaded', function() {
         form.reset();
     });
 
-});
+});*/

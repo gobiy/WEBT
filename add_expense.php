@@ -25,7 +25,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <p>Betrag: '.$amount.'</p>
         <p>Beschreibung: '.$description.'</p>
         <p>Ergebnis: '.$result.'</p>
-        <a href="BUDGETPLAN.HTML">Zurück zum HTML-Dokument</a>
+        <a href="index.html">Zurück zum HTML-Dokument</a>
+        
+        <script>
+            const category = "'.$category.'";
+            const amount = '.$amount.';
+            const description = "'.$description.'";
+            
+            addExpenseToCanvas(category, amount);
+            displayTransaction(category, amount, description);
+        </script>
     </body>
     </html>';
 }
