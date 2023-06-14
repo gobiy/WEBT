@@ -5,98 +5,71 @@ body {
     padding: 0;
 }
 
-.error-message {
-    color: red;
+.w3-mobile {
+    max-width: 100%;
 }
 
-.container {
-    max-width: 100%;
+.w3-container {
     margin: 0 auto;
     padding: 20px;
 }
-canvas {
-    border: 1px solid #ccc;
-    width:400;
-    height: 400;
-}
 
-h1 {
+.w3-center {
     text-align: center;
 }
 
-nav {
+.w3-bar {
     background-color: #333333;
     color: #fff;
     padding: 10px;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
+.w3-bar-item {
     display: inline-block;
     margin-right: 10px;
+    padding: 10px 20px;
 }
 
-nav ul li a {
+.w3-bar-item a {
     color: #fff;
     text-decoration: none;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-img {
+.w3-image {
     max-width: 100%;
     height: auto;
     display: block;
     margin: 0 auto;
 }
 
-section {
+.w3-section {
     margin-bottom: 20px;
 }
 
-form {
-    max-width: 800px;
-    margin: 10px 0 10px 20px;
+.w3-section:last-child {
+    margin-bottom: 0;
 }
 
-legend {
-    font-weight: bold;
-    text-transform: uppercase;
-    background: #333;
-    padding: 5px 10px;
-    color: white;
-    margin: 10px 0 0 0;
-}
-
-label {
-    display: block;
-    font-weight: bold;
-    margin: 10px;
-}
-
-select#category {
+.w3-select {
     border: 1px solid #000;
     background-color: #fff;
     color: #333;
     margin: 10px;
     padding: 5px;
     font-weight: bold;
-  }
-
-textarea {
-    width: 80%;
-    resize: vertical;
 }
 
-button {
+.w3-input {
+    border: 1px solid #333333;
+    margin: 0 0 0 10px;
+    padding: 10px;
+}
+
+.w3-border {
+    border: 1px solid #ccc;
+}
+
+.w3-button {
     padding: 10px 20px;
     background-color: #333;
     color: #fff;
@@ -104,77 +77,21 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.w3-button:hover {
     background-color: #666;
 }
 
-footer {
+.w3-ul {
+    list-style: none;
+    padding: 0;
+}
+
+.w3-black {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 10px;
 }
 
-input,
-textarea {
-    border: 1px solid #333333;
-    margin: 0 0 0 10px;
-    padding: 10px;
-}
 
-input:focus,
-textarea:focus {
-    border: 1px solid #333333;
-    background: #666;
-    color: #fff;
-}
 
-input[type="text"],
-button[type="submit"],
-textarea {
-    cursor: pointer;
-}
-
-/* Responsive Layout */
-@media (max-width: 767px) {
-    /* Mobile Geräteklasse */
-    .container {
-        padding: 10px;
-    }
-
-    nav {
-        padding: 5px;
-    }
-
-    nav ul li {
-        margin-right: 5px;
-    }
-
-    header {
-        margin-bottom: 10px;
-    }
-
-    form {
-        max-width: 100%;
-        margin: 10px 0;
-    }
-}
-
-@media (min-width: 768px) {
-    /* Desktop Geräteklasse */
-    .container {
-        padding: 20px;
-    }
-
-    nav {
-        padding: 10px;
-    }
-
-    nav ul li {
-        margin-right: 10px;
-    }
-
-    header {
-        margin-bottom: 20px;
-    }
-}

@@ -7,12 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $result = $einnahmen - $amount;
 
-    // Ein selbstdefiniertes Cookie setzen
     $cookieName = 'myCookie';
     $cookieValue = 'Cookie Value';
-    setcookie($cookieName, $cookieValue, time() + (86400 * 30), '/'); // Gültig für 30 Tage und für alle Pfade
+    setcookie($cookieName, $cookieValue, time() + (86400 * 30), '/');
 
-    // HTTP-Response generieren
+
     echo '<!DOCTYPE html>
     <html>
     <head>
@@ -29,7 +28,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="BUDGETPLAN.HTML">Zurück zum HTML-Dokument</a>
     </body>
     </html>';
-
-    exit; // Beenden Sie die Skriptausführung, um zusätzlichen HTML-Code zu vermeiden
 }
 ?>

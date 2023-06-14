@@ -1,30 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Formular überwachen
   const form = document.getElementById('expense-form');
   form.addEventListener('submit', function(event) {
       event.preventDefault();
 
-      // Ausgaben vom Benutzer abrufen
       const category = document.getElementById('category').value;
       const amount = parseFloat(document.getElementById('amount').value);
       const description = document.getElementById('description').value;
 
-      // Validierung der Eingaben
       if (!category || !amount) {
-          return; // Wenn Kategorie oder Betrag fehlen, nichts tun
+          return; 
       }
 
-      // Ausgaben zum Canvas-Diagramm hinzufügen
       addExpenseToCanvas(category, amount);
 
-      // Ausgaben in der Transaktionsliste anzeigen
       displayTransaction(category, amount, description);
 
-      // Formular zurücksetzen
       form.reset();
   });
 
-  // Neue Kategorie hinzufügen
   const addCategoryButton = document.getElementById('add-category');
   addCategoryButton.addEventListener('click', function() {
       const newCategory = document.getElementById('new-category').value;
@@ -34,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
   });
 
-  // Funktion, um eine neue Kategorie zur Dropdown-Liste hinzuzufügen
   function addCategoryOption(category) {
       const selectElement = document.getElementById('category');
       const newOption = document.createElement('option');
@@ -43,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
       selectElement.appendChild(newOption);
   }
 
-  // Funktion, um eine Transaktion zur Liste hinzuzufügen
   function displayTransaction(category, amount, description) {
       const transactionList = document.getElementById('transaction-list');
 
@@ -53,27 +44,20 @@ document.addEventListener('DOMContentLoaded', function() {
       transactionList.appendChild(transactionItem);
   }
 
-  // Daten für das Kreisdiagramm
   const chartData = [];
 
-  // Funktion, um die Ausgaben zum Canvas-Diagramm hinzuzufügen und es zu aktualisieren
-  function addExpenseToCanvas(category, amount) {
-      // Überprüfen, ob die Kategorie bereits im Diagramm vorhanden ist
+    function addExpenseToCanvas(category, amount) {
       const existingCategory = chartData.find(item => item.category === category);
 
       if (existingCategory) {
-          // Kategorie bereits vorhanden, Betrag aktualisieren
           existingCategory.amount += amount;
       } else {
-          // Neue Kategorie hinzufügen
           chartData.push({ category: category, amount: amount });
       }
 
-      // Diagramm aktualisieren
       drawPieChart(chartData);
   }
 
-  // Funktion zum Zeichnen eines Kreisdiagramms im Canvas
   function drawPieChart(data) {
       const canvas = document.getElementById('canvas');
       const context = canvas.getContext('2d');
@@ -98,8 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 
-  // Funktion zum Generieren einer zufälligen Farbe
-  function getRandomColor() {
+   function getRandomColor() {
       const letters = '0123456789ABCDEF';
       let color = '#';
       for (let i = 0; i < 6; i++) {
