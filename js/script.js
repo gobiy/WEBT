@@ -35,15 +35,6 @@
       selectElement.appendChild(newOption);
   }
 
-  function displayTransaction(category, amount, description) {
-      const transactionList = document.getElementById('transaction-list');
-
-      const transactionItem = document.createElement('li');
-      transactionItem.textContent = `Kategorie: ${category}, Betrag: ${amount}, Beschreibung: ${description}`;
-
-      transactionList.appendChild(transactionItem);
-  }
-
   const chartData = [];
 
     function addExpenseToCanvas(category, amount) {

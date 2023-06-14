@@ -1,3 +1,26 @@
+function displayTransactions(transactions) {
+    const transactionList = document.getElementById('transaction-list');
+
+    transactions.forEach((transaction) => {
+        const { Kategorie, Betrag, Beschreibung } = transaction;
+
+        const transactionItem = document.createElement('li');
+        transactionItem.textContent = `Kategorie: ${Kategorie}, Betrag: ${Betrag}, Beschreibung: ${Beschreibung}`;
+
+        transactionList.appendChild(transactionItem);
+
+        
+    });
+}
+
+fetch("add_expense.php")
+.then((response) => response.json())
+.then((json) => displayTransactions(json));
+
+
+
+
+
 /*document.addEventListener('DOMContentLoaded', function() {
     let addedCategories = [];
 
