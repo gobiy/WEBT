@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Budgetplan</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <script src="js/budget.js"></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#willkommen">Willkommen</a></li>
+            <li><a href="#transaktionen">Transaktionen</a></li>
+            <li><a href="#kategorien">Kategorien</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Budgetplan</h1>
+        <img src="img/Bild Budget.jpg" alt="Bild Budget">
+    </header>
+
+    <main>
+        <section id="willkommen">
+            <h2>Willkommen</h2>
+            <p>Willkommen beim Budgetplaner! Diese Webapplikation hilft dir, deine Ausgaben zu verwalten.</p>
+        </section>
+
+        <form id="expense-form" action="add_expense.php" @submit.prevent="submitForm" 
+            <fieldset>
+                <legend>Meine Ausgaben</legend>
+
+                <label for="einnahmen">Einnahmen:</label>
+                <input type="number" id="einnahmen" name="einnahmen" step="0.01" required><br>
+
+                <label for="category">Kategorie:</label>
+                <select id="category" name="category" required>
+                    <option value="" selected disabled>Bitte wählen</option>
+                    <option value="Lebensmittel">Lebensmittel</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Unterhaltung">Unterhaltung</option>
+                </select><br>
+
+                <label for="amount">Betrag:</label>
+                <input type="number" id="amount" name="amo" step="0.01" required><br>
+
+                <label for="description">Beschreibung:</label>
+                <textarea id="description" name="description" rows="4" cols="20"></textarea><br><br>
+
+                <button type="submit">Ausgabe hinzufügen</button>
+            </fieldset>
+        </form>
+
+        <section>
+            <h2>Übersicht Ausgaben</h2>
+            <canvas id="canvas"></canvas>
+        </section>
+
+        <section id="transaktionen">
+            <h2>Transaktionen</h2>
+            <ul id="transaction-list"></ul>
+        </section>
+
+        <section id="kategorien">
+            <h2>Kategorien</h2>
+            <label for="new-category">Neue Kategorie hinzufügen:</label>
+            <input id="new-category" type="text" size="20">
+            <button id="add-category">Hinzufügen</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Budgetplaner</p>
+    </footer>
+</body>
+</html>
