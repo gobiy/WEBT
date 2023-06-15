@@ -1,68 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Budgetplan</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
-    <script src="js/budget.js"></script>
+<meta charset="UTF-8">
+<title>Budgetplan</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js"></script>
+<script src="js/budget.js"></script>
 </head>
 <body class="w3-container w3-mobile" >
-    <header class="w3-container">
-        <h1 class="w3-center">Budgetplan</h1>
-    </header>
+<header class="w3-container">
+    <h1 class="w3-center">Budgetplan</h1>
+</header>
 
-    <nav class="w3-bar w3-black w3-mobile">
-        <a href="#information" class="w3-bar-item w3-button w3-mobile">Willkommen</a>
-        <a href="#transaction" class="w3-bar-item w3-button w3-mobile">Transaktionen</a>
-        <a href="#transactionlist" class="w3-bar-item w3-button w3-mobile">Transaktionen</a>
-        <a href="#categorie" class="w3-bar-item w3-button w3-mobile">Kategorien</a>
-    </nav>
-   
-    <section id="information" class="w3-container w3-mobile">
-        <h2>Willkommen</h2>
-        <p>Willkommen beim Budgetplaner! Diese Webapplikation hilft dir, deine Ausgaben zu verwalten.</p>
-        <img id="information_picture" src="img/Bild Budget.jpg" alt="Bild Budget" class="w3-image w3-mobile">
-    </section>
+<nav class="w3-bar w3-black w3-mobile">
+    <a href="#information" class="w3-bar-item w3-button w3-mobile">Willkommen</a>
+    <a href="#transaction" class="w3-bar-item w3-button w3-mobile">Transaktionen</a>
+    <a href="#transactionlist" class="w3-bar-item w3-button w3-mobile">Transaktionen</a>
+    <a href="#categorie" class="w3-bar-item w3-button w3-mobile">Kategorien</a>
+</nav>
 
-    <section id="transaction" class="w3-container w3-section w3-mobile">
-        <form id="expense-form" action="add_expense.php" method="POST" class="w3-container w3-section w3-mobile">
-            <fieldset>
-                <legend>Meine Ausgaben</legend>
+<section id="information" class="w3-container w3-mobile">
+    <h2>Willkommen</h2>
+    <p>Willkommen beim Budgetplaner! Diese Webapplikation hilft dir, deine Ausgaben zu verwalten.</p>
+    <img id="information_picture" src="img/Bild Budget.jpg" alt="Bild Budget" class="w3-image w3-mobile">
+</section>
 
-                <label for="category">Kategorie:</label>
-                <select id="category" name="category" required class="w3-select w3-border w3-mobile">
-                    <option value="" selected disabled>Bitte wählen</option>
-                    <option value="Lebensmittel">Lebensmittel</option>
-                    <option value="Transport">Transport</option>
-                    <option value="Unterhaltung">Unterhaltung</option>
-                </select><br><br>
+<section id="transaction" class="w3-container w3-section w3-mobile">
+    <form id="expense-form" action="add_expense.php" method="POST" class="w3-container w3-section w3-mobile">
+        <fieldset>
+            <legend>Meine Ausgaben</legend>
+            <label for="einnahmen">Einnahmen:</label>
+            <input type="number" id="einnahmen" name="einnahmen" step="0.01" required class="w3-input w3-border w3-mobile"><br>
 
-                <label for="amount">Betrag:</label>
-                <input type="number" id="amount" name="amount" step="0.01" required class="w3-input w3-border w3-mobile"><br>
+            <label for="category">Kategorie:</label>
+            <select id="category" name="category" required class="w3-select w3-border w3-mobile">
+                <option value="" selected disabled>Bitte wählen</option>
+                <option value="Lebensmittel">Lebensmittel</option>
+                <option value="Transport">Transport</option>
+                <option value="Unterhaltung">Unterhaltung</option>
+            </select><br><br>
 
-                <label for="description">Beschreibung:</label>
-                <textarea id="description" name="description" rows="4" cols="20" class="w3-input w3-border w3-mobile"></textarea><br><br>
+            <label for="amount">Betrag:</label>
+            <input type="number" id="amount" name="amount" step="0.01" required class="w3-input w3-border w3-mobile"><br>
 
-                <input type="submit" class="w3-button w3-black w3-mobile">Ausgabe hinzufügen</input>
-            </fieldset>
-        </form>
-    </section>
+            <label for="description">Beschreibung:</label>
+            <textarea id="description" name="description" rows="4" cols="20" class="w3-input w3-border w3-mobile"></textarea><br><br>
 
-    <section id="transactionlist" class="w3-container w3-section w3-mobile">
-        <h2>Transaktionen</h2>
-        <label for="einnahmen">Einnahmen:</label>
-                <input type="number" id="einnahmen" name="einnahmen" step="0.01" required class="w3-input w3-border w3-mobile"><br>
-        <ul id="transaction-list" class="w3-ul"></ul>
-    </section>
+            <input type="submit" class="w3-button w3-black w3-mobile">Ausgabe hinzufügen</input>
+        </fieldset>
+    </form>
+</section>
 
-    <canvas id="canvas" width="400" height="400"></canvas>
- 
-    <footer class="w3-container w3-black w3-mobile">
-        <p>&copy; 2023 Budgetplaner</p>
-    </footer>
+<section id="transactionlist" class="w3-container w3-section w3-mobile">
+    <h2>Transaktionen</h2>
+    <ul id="transaction-list" class="w3-ul"></ul>
+    <p id="total-amount" class="w3-mobile"></p>
+</section>
 
-    
-</body>
-</html>
+<canvas id="canvas" width="400" height="400"></canvas>
+
+<footer class="w3-container w3-black w3-mobile">
+    <p>&copy; 2023 Budgetplaner</p>
+</footer>

@@ -1,5 +1,7 @@
 function displayTransactions(transactions) {
     const transactionList = document.getElementById('transaction-list');
+    const totalAmountElement = document.getElementById('total-amount');
+    let totalAmount = 0;
 
     transactions.forEach((transaction) => {
         const { Kategorie, Betrag, Beschreibung } = transaction;
@@ -9,8 +11,10 @@ function displayTransactions(transactions) {
 
         transactionList.appendChild(transactionItem);
 
-        
+        totalAmount += parseFloat(Betrag);
     });
+
+    totalAmountElement.textContent = `Gesamtbetrag: ${totalAmount.toFixed(2)}`;
 }
 
 fetch("add_expense.php")
