@@ -1,79 +1,50 @@
-/*document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('expense-form');
-    const chartData = [];
+function validateForm() {
+    const einnahmenInput = document.getElementById('einnahmen');
+    const categoryInput = document.getElementById('category');
+    const amountInput = document.getElementById('amount');
+    const descriptionInput = document.getElementById('description');
   
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        const category = document.getElementById('category').value;
-        const amount = parseFloat(document.getElementById('amount').value);
-        
-        addExpenseToCanvas(category, amount);
-        resetForm();
+    let isValid = true;
+  
+    const errorMessages = document.querySelectorAll('.error-message');
+    errorMessages.forEach((errorMessage) => {
+      errorMessage.remove();
     });
   
-    function addExpenseToCanvas(category, amount) {
-        const existingCategory = chartData.find(item => item.category === category);
-  
-        if (existingCategory) {
-            existingCategory.amount += amount;
-        } else {
-            chartData.push({ category: category, amount: amount });
-        }
-  
-        drawPieChart(chartData);
+    if (einnahmenInput.value.trim() === '') {
+      displayErrorMessage(einnahmenInput, 'Bitte geben Sie Ihre Einnahmen ein');
+      isValid = false;
     }
   
-    function drawPieChart(data) {
-        const canvas = document.getElementById('canvas');
-        const context = canvas.getContext('2d');
-        const centerX = canvas.width / 2;
-        const centerY = canvas.height / 2;
-        const radius = Math.min(centerX, centerY) - 10;
-        const total = data.reduce((sum, item) => sum + item.amount, 0);
-        let startAngle = 0;
-  
-        context.clearRect(0, 0, canvas.width, canvas.height);
-  
-        data.forEach(item => {
-            const sliceAngle = (item.amount / total) * 2 * Math.PI;
-  
-            context.beginPath();
-            context.moveTo(centerX, centerY);
-            context.arc(centerX, centerY, radius, startAngle, startAngle + sliceAngle);
-            context.fillStyle = getRandomColor();
-            context.fill();
-  
-            startAngle += sliceAngle;
-        });
-  
-        displayTransactions(chartData);
+    if (categoryInput.value === '') {
+      displayErrorMessage(categoryInput, 'Bitte wählen Sie eine Kategorie aus');
+      isValid = false;
     }
   
+    if (amountInput.value.trim() === '') {
+      displayErrorMessage(amountInput, 'Bitte geben Sie einen Betrag ein');
+      isValid = false;
     }
   
-    function resetForm() {
-        document.getElementById('category').value = '';
-        document.getElementById('amount').value = '';
-        document.getElementById('description').value = '';
+    if (descriptionInput.value.trim() === '') {
+      displayErrorMessage(descriptionInput, 'Bitte geben Sie eine Beschreibung ein');
+      isValid = false;
     }
   
-    function getRandomColor() {
-        const letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    }
+    return isValid;
+  }
   
-    // Lade vorhandene Transaktionen beim Laden der Seite
-    fetch('add_expense.php')
-        .then(response => response.json())
-        .then(json => {
-            chartData.push(...json);
-            drawPieChart(chartData);
-            displayTransactions(chartData);
-        })
-        .catch(error => console.error('Fehler beim Laden der Transaktionen:', error));
-});
+  function displayErrorMessage(inputElement, message) {
+    const errorMessage = document.createElement('p');
+    errorMessage.classList.add('error-message');
+    errorMessage.textContent = message;
+    inputElement.parentNode.appendChild(errorMessage);
+  }
+  
+  const expenseForm = document.getElementById('expense-form');
+  expenseForm.addEventListener('submit', (event) => {
+    if (!validateForm()) {
+      event.preventDefault();
+    }
+  });
+  
